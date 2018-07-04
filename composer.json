@@ -4,6 +4,9 @@
       "src\\": "./src"
     }
   },
+  "require": {
+    "php": "^7.1"
+  },
   "require-dev": {
     "phpunit/phpunit": "^7.2"
   }
