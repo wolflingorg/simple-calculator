@@ -12,7 +12,7 @@ class SumCommandTest extends TestCase
     private $command;
 
     /**
-     * @see http://phpunit.readthedocs.io/en/7.1/fixtures.html#more-setup-than-teardown
+     * @inheritdoc
      */
     public function setUp()
     {
@@ -51,7 +51,7 @@ class SumCommandTest extends TestCase
     }
 
     /**
-     * @see http://phpunit.readthedocs.io/en/7.1/fixtures.html#more-setup-than-teardown
+     * @inheritdoc
      */
     public function tearDown()
     {
