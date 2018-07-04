@@ -47,6 +47,7 @@ class Calculator
      * @param CommandInterface $command
      *
      * @return $this
+     * @throws \InvalidArgumentException
      */
     public function addCommand($name, CommandInterface $command)
     {
@@ -131,6 +132,7 @@ class Calculator
      * @param array ...$args
      *
      * @return $this
+     * @throws \InvalidArgumentException
      */
     public function compute($command, ...$args)
     {
@@ -148,6 +150,7 @@ class Calculator
      * @param $name
      *
      * @return CommandInterface
+     * @throws \InvalidArgumentException
      */
     private function getCommand($name)
     {
