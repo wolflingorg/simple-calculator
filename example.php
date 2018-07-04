@@ -15,7 +15,7 @@ echo $calc->init(1)
     ->compute('+', 1)
     ->getResult();
 
-echo "\n";
+echo PHP_EOL;
 
 // Multiply operations
 // will output 10
@@ -24,7 +24,7 @@ echo $calc->init(15)
     ->compute('-', 10)
     ->getResult();
 
-echo "\n";
+echo PHP_EOL;
 
 // Calculator also support REDO operation
 // will output 4
@@ -34,7 +34,7 @@ echo $calc->init(1)
     ->redo()
     ->getResult();
 
-echo "\n";
+echo PHP_EOL;
 
 // Calculator also support UNDO operation
 // will output 1
@@ -45,4 +45,4 @@ echo $calc->init(1)
     ->undo()
     ->getResult();
 
-echo "\n";
+echo PHP_EOL;

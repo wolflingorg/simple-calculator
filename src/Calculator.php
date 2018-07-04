@@ -86,7 +86,9 @@ class Calculator
 
         foreach ($this->intents as list($command, $args)) {
             array_unshift($args, $result);
-            $result = $this->commands[$command]->execute(...$args);
+
+            /** @var CommandInterface $command */
+            $result = $command->execute(...$args);
         }
 
         return $result;
@@ -130,18 +132,27 @@ class Calculator
      */
     public function compute($command, ...$args)
     {
-        // Checking if command is valid
-        if (!isset($this->commands[$command])) {
-            throw new \InvalidArgumentException(sprintf('Command %s is not found', $command));
-        }
-
         // Checking if all arguments are numeric
         if (array_filter($args, 'is_numeric') !== $args) {
             throw new \InvalidArgumentException('All arguments MUST be numeric');
         }
 
-        $this->intents[] = [$command, $args];
+        $this->intents[] = [$this->getCommand($command), $args];
 
         return $this;
+    }
+
+    /**
+     * @param $name
+     *
+     * @return CommandInterface
+     */
+    private function getCommand($name)
+    {
+        if (!isset($this->commands[$name])) {
+            throw new \InvalidArgumentException(sprintf('Command %s is not found', $name));
+        }
+
+        return $this->commands[$name];
     }
 }
