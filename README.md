@@ -23,4 +23,4 @@ echo $calc->init(1)
 
 You can add your own commands to the `./src/Commands/`
 
-more examples can be found in the `./example.php`
+More examples can be found in the `./example.php`
