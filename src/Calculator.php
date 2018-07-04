@@ -51,7 +51,9 @@ class Calculator
     public function addCommand($name, CommandInterface $command)
     {
         if (!is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid command name. Should be string. %s is given', gettype($name)));
+            throw new \InvalidArgumentException(
+                sprintf('Invalid command name. Should be string. %s is given', gettype($name))
+            );
         }
 
         $this->commands[$name] = $command;
