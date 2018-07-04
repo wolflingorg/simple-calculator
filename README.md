@@ -4,6 +4,7 @@
 
 * PHP ^7.1
 * XDebug (https://xdebug.org/docs/install)
+* Composer
 
 ### How to install
 
