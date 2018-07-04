@@ -3,6 +3,9 @@ namespace src\Commands;
 
 class SubCommand implements CommandInterface
 {
+    /**
+     * @inheritdoc
+     */
     public function execute(...$args)
     {
         if (2 != sizeof($args)) {
