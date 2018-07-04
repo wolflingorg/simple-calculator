@@ -26,7 +26,17 @@ echo $calc->init(15)
 
 echo "\n";
 
-// Calculator also support UNDO
+// Calculator also support REDO operation
+// will output 4
+echo $calc->init(1)
+    ->compute('+', 1)
+    ->redo()
+    ->redo()
+    ->getResult();
+
+echo "\n";
+
+// Calculator also support UNDO operation
 // will output 1
 echo $calc->init(1)
     ->compute('+', 5)

@@ -105,6 +105,22 @@ class Calculator
     }
 
     /**
+     * Repeat last operation
+     *
+     * @return $this
+     */
+    public function redo()
+    {
+        if ($operation = end($this->intents)) {
+            $this->intents[] = $operation;
+        }
+
+        reset($this->intents);
+
+        return $this;
+    }
+
+    /**
      * Add calculation to process
      *
      * @param $command
