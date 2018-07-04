@@ -130,8 +130,14 @@ class Calculator
      */
     public function compute($command, ...$args)
     {
+        // Checking if command is valid
         if (!isset($this->commands[$command])) {
             throw new \InvalidArgumentException(sprintf('Command %s is not found', $command));
+        }
+
+        // Checking if all arguments are numeric
+        if (array_filter($args, 'is_numeric') !== $args) {
+            throw new \InvalidArgumentException('All arguments MUST be numeric');
         }
 
         $this->intents[] = [$command, $args];
