@@ -69,7 +69,7 @@ class Calculator
      *
      * @return $this
      */
-    public function init($value)
+    public function init($value = 0.0)
     {
         $this->reset();
 

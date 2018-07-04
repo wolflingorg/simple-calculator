@@ -34,8 +34,24 @@ echo $calc->init(1)
 
 More examples can be found in the `./example.php`
 
-## Tasks
+## Tasks testing
 
 * Create unit tests for `src\Commands\SubCommand`
-* Create at least 3 new commands and cover them with unit tests
+* Create at least 3 new commands (multiplication, division, exponentiation) and cover them with unit tests
 * Fulfil all empty methods in the `CalculatorTest`
+
+## Tasks programming
+
+* Implement operations priorities so that example below will work correctly:
+
+```php
+<?php
+
+echo $calc->init(2)
+    ->compute('+', 2)
+    ->compute('*', 3)
+    ->getResult();
+
+// MUST return 8 NOT 12
+```
+
