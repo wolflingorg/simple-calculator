@@ -22,7 +22,7 @@ class SumCommandTest extends TestCase
     /**
      * @return array
      */
-    public function sumPositiveDataProvider()
+    public function commandPositiveDataProvider()
     {
         return [
             [1, 1, 2],
@@ -33,9 +33,9 @@ class SumCommandTest extends TestCase
     }
 
     /**
-     * @dataProvider sumPositiveDataProvider
+     * @dataProvider commandPositiveDataProvider
      */
-    public function testSumPositive($a, $b, $expected)
+    public function testCommandPositive($a, $b, $expected)
     {
         $result = $this->command->execute($a, $b);
 
@@ -45,7 +45,7 @@ class SumCommandTest extends TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testSumNegative()
+    public function testCommandNegative()
     {
         $this->command->execute(1);
     }
