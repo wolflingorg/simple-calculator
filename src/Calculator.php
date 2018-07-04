@@ -115,8 +115,8 @@ class Calculator
      */
     public function redo()
     {
-        if ($operation = end($this->intents)) {
-            $this->intents[] = $operation;
+        if ($intent = end($this->intents)) {
+            $this->intents[] = $intent;
         }
 
         reset($this->intents);
