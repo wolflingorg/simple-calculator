@@ -3,6 +3,7 @@ namespace tests\Unit;
 
 use \PHPUnit\Framework\TestCase;
 use src\Calculator;
+use src\Commands\CommandInterface;
 
 class CalculatorTest extends TestCase
 {
@@ -29,6 +30,13 @@ class CalculatorTest extends TestCase
      */
     public function getCalculatorMock(){
         return $this->getMockBuilder(Calculator::class);
+    }
+
+    /**
+     * @return \PHPUnit\Framework\MockObject\MockBuilder
+     */
+    public function getCommandMock(){
+        return $this->getMockBuilder(CommandInterface::class);
     }
 
     public function testCompute()
