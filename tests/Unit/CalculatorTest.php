@@ -41,6 +41,9 @@ class CalculatorTest extends TestCase
         return $this->getMockBuilder(CommandInterface::class);
     }
 
+    /**
+     * TODO: How to check whether it works?
+     */
     public function testCompute()
     {
 
