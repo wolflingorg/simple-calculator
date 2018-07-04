@@ -1,4 +1,5 @@
 <?php
+
 namespace src;
 
 use src\Commands\CommandInterface;
@@ -11,20 +12,32 @@ class Calculator
     private $value;
 
     /**
-     * Pull of all available commands
+     * All available commands
      *
      * @var CommandInterface[] $commands
      */
     private $commands = [];
 
     /**
-     * Calculation history
+     * Calculation intents
      */
-    private $history = [];
+    private $intents = [];
 
+    /**
+     * Calculator constructor.
+     */
     public function __construct()
     {
         $this->reset();
+    }
+
+    /**
+     * Resets the calculator
+     */
+    private function reset()
+    {
+        $this->intents = [];
+        $this->value = 0.0;
     }
 
     /**
@@ -37,7 +50,7 @@ class Calculator
      */
     public function addCommand($name, CommandInterface $command)
     {
-        if (!is_string($name)){
+        if (!is_string($name)) {
             throw new \InvalidArgumentException(sprintf('Invalid command name. Should be string. %s is given', gettype($name)));
         }
 
@@ -53,22 +66,13 @@ class Calculator
      *
      * @return $this
      */
-    public function setValue($value)
+    public function init($value)
     {
         $this->reset();
 
         $this->value = $value;
 
         return $this;
-    }
-
-    /**
-     * Resets the calculator
-     */
-    function reset()
-    {
-        $this->history = [];
-        $this->value = 0.0;
     }
 
     /**
@@ -80,7 +84,7 @@ class Calculator
     {
         $result = $this->value;
 
-        foreach ($this->history as list($command, $args)) {
+        foreach ($this->intents as list($command, $args)) {
             array_unshift($args, $result);
             $result = $this->commands[$command]->execute(...$args);
         }
@@ -95,7 +99,7 @@ class Calculator
      */
     public function undo()
     {
-        array_pop($this->history);
+        array_pop($this->intents);
 
         return $this;
     }
@@ -114,7 +118,7 @@ class Calculator
             throw new \InvalidArgumentException(sprintf('Command %s is not found', $command));
         }
 
-        $this->history[] = [$command, $args];
+        $this->intents[] = [$command, $args];
 
         return $this;
     }
