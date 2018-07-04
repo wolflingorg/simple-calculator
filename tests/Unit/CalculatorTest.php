@@ -24,7 +24,7 @@ class CalculatorTest extends TestCase
     }
 
     /**
-     * TODO: Which methods should be mocked for calculator?
+     * TODO: Which methods should be mocked for Calculator?
      *
      * @return \PHPUnit\Framework\MockObject\MockBuilder
      */
@@ -33,6 +33,8 @@ class CalculatorTest extends TestCase
     }
 
     /**
+     * TODO: Which methods should be mocked for Command?
+     *
      * @return \PHPUnit\Framework\MockObject\MockBuilder
      */
     public function getCommandMock(){
