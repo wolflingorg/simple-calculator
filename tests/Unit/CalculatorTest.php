@@ -26,6 +26,8 @@ class CalculatorTest extends TestCase
     /**
      * TODO: Which methods should be mocked for Command?
      *
+     * @see https://phpunit.readthedocs.io/en/7.1/test-doubles.html
+     *
      * @return \PHPUnit\Framework\MockObject\MockObject
      */
     public function getCommandMock() {
@@ -107,6 +109,8 @@ class CalculatorTest extends TestCase
      *
      * Mock command`s execute method and check whether it was called at least once with the correct arguments
      *
+     * @see https://phpunit.readthedocs.io/en/7.1/test-doubles.html
+     *
      * @covers Calculator::getResult()
      */
     public function testGetResultPositive()
@@ -118,6 +122,8 @@ class CalculatorTest extends TestCase
      * TODO: Check that command was executed with exception
      *
      * Mock command`s execute method so that it returns exception and check whether it was thrown
+     *
+     * @see https://phpunit.readthedocs.io/en/7.1/test-doubles.html
      *
      * @covers Calculator::getResult()
      */
