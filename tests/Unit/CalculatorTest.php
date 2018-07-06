@@ -10,7 +10,7 @@ class CalculatorTest extends TestCase
     /**
      * @var Calculator
      */
-    private $calculator;
+    private $calc;
 
     /**
      * TODO: explain difference between setUp() and tearDown()
@@ -20,16 +20,7 @@ class CalculatorTest extends TestCase
      */
     public function setUp()
     {
-        $this->calculator = new Calculator();
-    }
-
-    /**
-     * TODO: Which methods should be mocked for Calculator?
-     *
-     * @return \PHPUnit\Framework\MockObject\MockBuilder
-     */
-    public function getCalculatorMock(){
-        return $this->getMockBuilder(Calculator::class);
+        $this->calc = new Calculator();
     }
 
     /**
@@ -37,45 +28,119 @@ class CalculatorTest extends TestCase
      *
      * @return \PHPUnit\Framework\MockObject\MockObject
      */
-    public function getCommandMock(){
-        return $this->getMockBuilder(CommandInterface::class)->getMock();
+    public function getCommandMock() {
+        return $this->getMockBuilder(CommandInterface::class)
+            ->getMock();
     }
 
     /**
-     * TODO: How to check whether it works?
+     * TODO: Check whether intents = []
+     * TODO: Check whether value = 0.0
+     *
+     * @see PHPUnit :: assertAttributeEquals
      */
-    public function testCompute()
+    public function testInitialCalcState()
     {
 
     }
 
     /**
-     * TODO: How to check whether it works?
+     * TODO: Check name exception
+     *
+     * @covers Calculator::addCommand()
      */
-    public function testAddCommand()
-    {
-
-    }
-
-    public function testGetResult()
+    public function testAddCommandNegative()
     {
 
     }
 
     /**
-     * TODO: How to check whether it works?
+     * TODO: Check whether command is in the commands array
+     *
+     * @covers Calculator::addCommand()
+     */
+    public function testAddCommandPositive()
+    {
+
+    }
+
+    /**
+     * TODO: Check whether intents = []
+     * TODO: Check whether value = expected
+     *
+     * @see PHPUnit :: assertAttributeEquals
+     *
+     * @covers Calculator::init()
      */
     public function testInit()
     {
-        $mock = $this->getCommandMock();
-        $mock->method();
+
     }
 
-    public function testRedo()
+    /**
+     * TODO: Check is_numeric exception
+     * TODO: Check hasCommand exception
+     *
+     * @see PHPUnit :: dataProvider
+     *
+     * @covers Calculator::compute()
+     */
+    public function testComputeNegative()
     {
 
     }
 
+    /**
+     * TODO: Check whether command and arguments have appeared in the intents array
+     *
+     * @see PHPUnit :: assertAttributeEquals
+     *
+     * @covers Calculator::compute()
+     */
+    public function testComputePositive()
+    {
+
+    }
+
+    /**
+     * TODO: Check that command was executed
+     *
+     * Mock command`s execute method and check whether it was called at least once with the correct arguments
+     *
+     * @covers Calculator::getResult()
+     */
+    public function testGetResultPositive()
+    {
+
+    }
+
+    /**
+     * TODO: Check that command was executed with exception
+     *
+     * Mock command`s execute method so that it returns exception and check whether it was thrown
+     *
+     * @covers Calculator::getResult()
+     */
+    public function testGetResultNegative()
+    {
+
+    }
+
+    /**
+     * TODO: Check whether the last item in the intents array was duplicated
+     *
+     * @covers Calculator::replay()
+     */
+    public function testReplay()
+    {
+
+    }
+
+    /**
+     * TODO: Check whether the last item was removed from intents array
+     *
+     * @covers Calculator::undo()
+     */
     public function testUndo()
     {
 
@@ -83,10 +148,11 @@ class CalculatorTest extends TestCase
 
     /**
      * TODO: what difference between tearDown() and tearDownAfterClass()
+     *
      * @see http://phpunit.readthedocs.io/en/7.1/fixtures.html#more-setup-than-teardown
      */
     public function tearDown()
     {
-        unset($this->calculator);
+        unset($this->calc);
     }
 }

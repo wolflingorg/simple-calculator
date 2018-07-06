@@ -79,53 +79,6 @@ class Calculator
     }
 
     /**
-     * Calculate result
-     *
-     * @return float
-     */
-    public function getResult()
-    {
-        $result = $this->value;
-
-        foreach ($this->intents as list($command, $args)) {
-            array_unshift($args, $result);
-
-            /** @var CommandInterface $command */
-            $result = $command->execute(...$args);
-        }
-
-        return $result;
-    }
-
-    /**
-     * Undoes last operation
-     *
-     * @return $this
-     */
-    public function undo()
-    {
-        array_pop($this->intents);
-
-        return $this;
-    }
-
-    /**
-     * Repeat last operation
-     *
-     * @return $this
-     */
-    public function redo()
-    {
-        if ($intent = end($this->intents)) {
-            $this->intents[] = $intent;
-        }
-
-        reset($this->intents);
-
-        return $this;
-    }
-
-    /**
      * Add calculation to process
      *
      * @param $command
@@ -169,5 +122,53 @@ class Calculator
     public function hasCommand($name)
     {
         return isset($this->commands[$name]);
+    }
+
+    /**
+     * Undoes last operation
+     *
+     * @return $this
+     */
+    public function undo()
+    {
+        array_pop($this->intents);
+
+        return $this;
+    }
+
+    /**
+     * Repeat last operation
+     *
+     * @return $this
+     */
+    public function replay()
+    {
+        if ($intent = end($this->intents)) {
+            $this->intents[] = $intent;
+        }
+
+        reset($this->intents);
+
+        return $this;
+    }
+
+    /**
+     * Calculate result
+     *
+     * @return float
+     * @throws \InvalidArgumentException
+     */
+    public function getResult()
+    {
+        $result = $this->value;
+
+        foreach ($this->intents as list($command, $args)) {
+            array_unshift($args, $result);
+
+            /** @var CommandInterface $command */
+            $result = $command->execute(...$args);
+        }
+
+        return $result;
     }
 }

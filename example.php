@@ -30,8 +30,8 @@ echo PHP_EOL;
 // will output 4
 echo $calc->init(1)
     ->compute('+', 1)
-    ->redo()
-    ->redo()
+    ->replay()
+    ->replay()
     ->getResult();
 
 echo PHP_EOL;
