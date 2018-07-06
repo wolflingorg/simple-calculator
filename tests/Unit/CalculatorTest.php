@@ -35,10 +35,10 @@ class CalculatorTest extends TestCase
     /**
      * TODO: Which methods should be mocked for Command?
      *
-     * @return \PHPUnit\Framework\MockObject\MockBuilder
+     * @return \PHPUnit\Framework\MockObject\MockObject
      */
     public function getCommandMock(){
-        return $this->getMockBuilder(CommandInterface::class);
+        return $this->getMockBuilder(CommandInterface::class)->getMock();
     }
 
     /**
@@ -67,7 +67,8 @@ class CalculatorTest extends TestCase
      */
     public function testInit()
     {
-
+        $mock = $this->getCommandMock();
+        $mock->method();
     }
 
     public function testRedo()

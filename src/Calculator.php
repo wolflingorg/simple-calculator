@@ -154,10 +154,20 @@ class Calculator
      */
     private function getCommand($name)
     {
-        if (!isset($this->commands[$name])) {
+        if (!$this->hasCommand($name)) {
             throw new \InvalidArgumentException(sprintf('Command %s is not found', $name));
         }
 
         return $this->commands[$name];
+    }
+
+    /**
+     * @param $name
+     *
+     * @return bool
+     */
+    public function hasCommand($name)
+    {
+        return isset($this->commands[$name]);
     }
 }
