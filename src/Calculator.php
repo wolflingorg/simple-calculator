@@ -69,7 +69,7 @@ class Calculator
      *
      * @return $this
      */
-    public function init($value = 0.0)
+    public function init(float $value = 0.0)
     {
         $this->reset();
 
@@ -82,18 +82,13 @@ class Calculator
      * Add calculation to process
      *
      * @param $command
-     * @param array ...$args
+     * @param float[] $args
      *
      * @return $this
      * @throws \InvalidArgumentException
      */
-    public function compute($command, ...$args)
+    public function compute($command, float ...$args)
     {
-        // Checking if all arguments are numeric
-        if (array_filter($args, 'is_numeric') !== $args) {
-            throw new \InvalidArgumentException('All arguments MUST be numeric');
-        }
-
         $this->intents[] = [$this->getCommand($command), $args];
 
         return $this;

@@ -49,7 +49,7 @@ class CalculatorTest extends TestCase
     /**
      * TODO: Check name exception
      *
-     * @covers Calculator::addCommand()
+     * @covers \src\Calculator::addCommand()
      */
     public function testAddCommandNegative()
     {
@@ -59,7 +59,7 @@ class CalculatorTest extends TestCase
     /**
      * TODO: Check whether command is in the commands array
      *
-     * @covers Calculator::addCommand()
+     * @covers \src\Calculator::addCommand()
      */
     public function testAddCommandPositive()
     {
@@ -72,7 +72,7 @@ class CalculatorTest extends TestCase
      *
      * @see PHPUnit :: assertAttributeEquals
      *
-     * @covers Calculator::init()
+     * @covers \src\Calculator::init()
      */
     public function testInit()
     {
@@ -80,12 +80,11 @@ class CalculatorTest extends TestCase
     }
 
     /**
-     * TODO: Check is_numeric exception
      * TODO: Check hasCommand exception
      *
      * @see PHPUnit :: dataProvider
      *
-     * @covers Calculator::compute()
+     * @covers \src\Calculator::compute()
      */
     public function testComputeNegative()
     {
@@ -97,7 +96,7 @@ class CalculatorTest extends TestCase
      *
      * @see PHPUnit :: assertAttributeEquals
      *
-     * @covers Calculator::compute()
+     * @covers \src\Calculator::compute()
      */
     public function testComputePositive()
     {
@@ -111,7 +110,7 @@ class CalculatorTest extends TestCase
      *
      * @see https://phpunit.readthedocs.io/en/7.1/test-doubles.html
      *
-     * @covers Calculator::getResult()
+     * @covers \src\Calculator::getResult()
      */
     public function testGetResultPositive()
     {
@@ -125,7 +124,7 @@ class CalculatorTest extends TestCase
      *
      * @see https://phpunit.readthedocs.io/en/7.1/test-doubles.html
      *
-     * @covers Calculator::getResult()
+     * @covers \src\Calculator::getResult()
      */
     public function testGetResultNegative()
     {
@@ -135,7 +134,7 @@ class CalculatorTest extends TestCase
     /**
      * TODO: Check whether the last item in the intents array was duplicated
      *
-     * @covers Calculator::replay()
+     * @covers \src\Calculator::replay()
      */
     public function testReplay()
     {
@@ -145,7 +144,7 @@ class CalculatorTest extends TestCase
     /**
      * TODO: Check whether the last item was removed from intents array
      *
-     * @covers Calculator::undo()
+     * @covers \src\Calculator::undo()
      */
     public function testUndo()
     {
